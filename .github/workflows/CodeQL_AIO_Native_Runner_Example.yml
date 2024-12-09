@@ -1,10 +1,10 @@
 name: CodeQL_AIO_Native_Runner_Example.yml 
 on:
-  # push:
-   #  branches: [ main ]
+  push:
+   branches: [ main ]
 
-   pull_request:
-    branches: [main]
+  pull_request:
+    branches: [ main ]
 
 jobs:
   Example01_JavaScript:

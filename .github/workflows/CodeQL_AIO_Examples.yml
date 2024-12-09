@@ -1,10 +1,10 @@
 name: CodeQL_AIO_ContainerizedApp
 on:
-  # push:
-    # branches: [ main ]
+  push:
+   branches: [ main ]
 
   pull_request:
-    branches: [main]
+    branches: [ main ]
 
 jobs:
   Container_Example01_JavaScript:
@@ -21,11 +21,11 @@ jobs:
 
     container:
       image: node:18
-      options: --user root
+     options: --user root
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set safe directory
         run: |
@@ -33,7 +33,7 @@ jobs:
 
         # Initializes the CodeQL tools for scanning.
       - name: Initialize CodeQL
-        uses: github/codeql-action/init@v2
+        uses: github/codeql-action/init@v3
         with:
           languages:
             ${{ matrix.language }}
@@ -62,7 +62,7 @@ jobs:
           rm i18n/*.json || true
 
       - name: Perform CodeQL Analysis
-        uses: github/codeql-action/analyze@v2
+        uses: github/codeql-action/analyze@v3
 
   Container_Example02_Java:
     needs: Container_Example01_JavaScript
@@ -83,7 +83,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v
 
       - name: Set safe directory
         run: |

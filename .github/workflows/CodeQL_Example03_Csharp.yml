@@ -45,7 +45,7 @@ jobs:
           dotnet-version: 7.0.x      
 
       - name: Build with dotnet
-        working-directory: /__w/CodeQL_containerizedApp/CodeQL_containerizedApp/Example03_Csharp/WebGoatCore/
+        working-directory: /__w/CodeQL_ScanningApp_Within_Container/CodeQL_ScanningApp_Within_Container/Example03_Csharp/WebGoatCore/
         run: dotnet build WebGoatCore.csproj
 
      # - name: Autobuild

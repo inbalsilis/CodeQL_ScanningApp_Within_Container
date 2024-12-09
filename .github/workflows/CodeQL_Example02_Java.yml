@@ -31,10 +31,10 @@ jobs:
 
       - name: Set safe directory
         run: |
-         git config --global --add safe.directory /__w/CodeQL_containerizedApp/CodeQL_containerizedApp/
+         git config --global --add safe.directory /__w/CodeQL_ScanningApp_Within_Container/CodeQL_ScanningApp_Within_Container/
        
       - name: Install dependencies
-        working-directory: /__w/CodeQL_containerizedApp/CodeQL_containerizedApp/Example02_Java/
+        working-directory: /__w/CodeQL_ScanningApp_Within_Container/CodeQL_ScanningApp_Within_Container/Example02_Java/
         run: |
          apt-get update && \
          apt-get install build-essential maven default-jdk cowsay netcat -y && \
@@ -46,7 +46,7 @@ jobs:
           languages: ${{ matrix.language }}
 
       - name: Build with Maven
-        working-directory: /__w/CodeQL_containerizedApp/CodeQL_containerizedApp/Example02_Java/
+        working-directory: /__w/CodeQL_ScanningApp_Within_Container/CodeQL_ScanningApp_Within_Container/Example02_Java/
         run: |
          mvn -B package --file pom.xml
 

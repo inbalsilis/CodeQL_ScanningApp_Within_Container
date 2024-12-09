@@ -1,11 +1,11 @@
 name: CodeQL Example04 Direct Dockerpull and Scan
 
 on:
-    # push:
-    #  branches: [ main ]
+  push:
+   branches: [ main ]
 
-    pull_request:
-      branches: [ main ]
+  pull_request:
+    branches: [ main ]
     
 jobs:
  Container_Example04_DockerBuild_and_Scan:
@@ -28,7 +28,7 @@ jobs:
     steps:   
 
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       
       - name: Fix permissions and Install Python3
         run: |
@@ -39,13 +39,13 @@ jobs:
          apt-get update && apt-get install -y python3 python3-pip
 
       - name: Initialize CodeQL
-        uses: github/codeql-action/init@v2
+        uses: github/codeql-action/init@v3
         with:
           languages: ${{ matrix.language }}
          
       - name: Autobuild
-        uses: github/codeql-action/autobuild@v2
+        uses: github/codeql-action/autobuild@v3
 
       - name: Perform CodeQL Analysis
-        uses: github/codeql-action/analyze@v2
+        uses: github/codeql-action/analyze@v3
         
